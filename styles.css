@@ -356,6 +356,10 @@ nav > .nav-links > a:active {
     margin-bottom: 2rem;
   }
 
+  .project-text {
+    width: 90%;
+  }
+
   .project-image, .about-image {
     width: 80%;
   }
