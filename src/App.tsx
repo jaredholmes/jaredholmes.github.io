@@ -31,7 +31,7 @@ export default function App() {
       <h1 className="visually-hidden">
         {about.name} — {about.tagline}
       </h1>
-      <TopBar name={about.name} />
+      <TopBar name={about.name} entries={entries} activeId={activeId} />
 
       <div className={styles.layout}>
         <main className={styles.content}>

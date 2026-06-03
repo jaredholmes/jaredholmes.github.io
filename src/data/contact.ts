@@ -4,7 +4,7 @@ export interface ContactLink {
   href: string;
   copyValue: string;
   display: string;
-  todo?: boolean;
+
 }
 
 export const contactLinks: ContactLink[] = [
@@ -18,17 +18,15 @@ export const contactLinks: ContactLink[] = [
   {
     id: "linkedin",
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/jaredgrahamholmes",
-    copyValue: "https://www.linkedin.com/in/jaredgrahamholmes",
-    display: "in/jaredgrahamholmes",
+    href: "https://www.linkedin.com/in/jazza/",
+    copyValue: "https://www.linkedin.com/in/jazza/",
+    display: "in/jazza",
   },
   {
-    // TODO: replace with the real Medium profile/publication URL once available.
     id: "medium",
     label: "Medium",
-    href: "https://medium.com/",
-    copyValue: "https://medium.com/",
-    display: "Medium — add URL",
-    todo: true,
+    href: "https://medium.com/@jared-holmes",
+    copyValue: "https://medium.com/@jared-holmes",
+    display: "@jared-holmes",
   },
 ];
