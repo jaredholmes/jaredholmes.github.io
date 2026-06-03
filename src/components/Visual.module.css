@@ -1,0 +1,525 @@
+.figure {
+  margin: var(--space-lg) 0;
+  width: 100%;
+  max-width: var(--max-image);
+}
+
+.block {
+  position: relative;
+  z-index: 0; /* creates stacking context — cards stay below SideIndex */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition:
+    transform var(--dur-move) var(--ease-spring),
+    border-color var(--dur-move) var(--ease-in-out);
+}
+
+.blockWhite {
+  background: #ffffff;
+}
+
+.block:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+}
+
+.tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-family: var(--font-display);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  opacity: 0.7;
+}
+
+.svg {
+  width: min(70%, 380px);
+  height: auto;
+}
+
+/* Motif primitives */
+.surface {
+  fill: var(--color-bg);
+  stroke: var(--color-border);
+  stroke-width: 1;
+}
+
+.surfaceFaint {
+  fill: var(--color-bg);
+  stroke: var(--color-border);
+  stroke-width: 1;
+  opacity: 0.7;
+}
+
+.line {
+  fill: var(--color-secondary);
+  opacity: 0.55;
+}
+
+.lineFaint {
+  fill: var(--color-border);
+}
+
+.accentFill {
+  fill: var(--color-accent);
+  opacity: 0.85;
+}
+
+.accentDot {
+  fill: var(--color-accent);
+}
+
+.accentRing {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 2;
+}
+
+.rail {
+  stroke: var(--color-border);
+  stroke-width: 1.5;
+}
+
+.annoLine {
+  stroke: var(--color-accent);
+  stroke-width: 1;
+  opacity: 0.7;
+}
+
+/* Float animations (fragments / annotated variants) */
+.float1,
+.float2 {
+  transition: transform var(--dur-move) var(--ease-spring);
+}
+
+.block:hover .float1 {
+  transform: translateY(-4px);
+}
+
+.block:hover .float2 {
+  transform: translateY(4px);
+}
+
+/* ── DESIGN.md variant ───────────────────────────────────── */
+
+.designMdLayout {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 24px 28px 24px 24px;
+  gap: 0;
+  box-sizing: border-box;
+}
+
+.designMdSvg {
+  flex: 0 0 auto;
+  height: 100%;
+  width: auto;
+}
+
+.connLine {
+  flex: 0 0 48px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.connSvg {
+  width: 48px;
+  height: 48px;
+}
+
+.dashConn {
+  stroke: var(--color-accent);
+  stroke-width: 1;
+  stroke-dasharray: 2.5 3;
+  opacity: 0.55;
+  fill: none;
+}
+
+/* Card deck */
+.cardDeck {
+  flex: 1;
+  position: relative;
+  height: 100%;
+  min-width: 0;
+}
+
+.card {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 12px rgba(26, 24, 22, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform-origin: top left;
+  will-change: transform, opacity;
+}
+
+.cardLabel {
+  flex-shrink: 0;
+  padding: 7px 10px 6px;
+  font-family: var(--font-display);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  opacity: 0.75;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cardContent {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  overflow: hidden;
+}
+
+/* SVG token classes used by .designMdSvg */
+.titleBar {
+  fill: var(--color-surface);
+}
+
+.hairline {
+  stroke: var(--color-border);
+  stroke-width: 0.7;
+  fill: none;
+}
+
+.fileLabel {
+  font-family: var(--font-mono);
+  font-size: 6px;
+  fill: var(--color-secondary);
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+}
+
+.hashMark {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  fill: var(--color-accent);
+  opacity: 0.85;
+}
+
+.hashMarkSm {
+  font-family: var(--font-mono);
+  font-size: 7px;
+  font-weight: 500;
+  fill: var(--color-accent);
+  opacity: 0.7;
+}
+
+.bullet {
+  fill: var(--color-secondary);
+  opacity: 0.4;
+}
+
+.swatchPrimary {
+  fill: var(--color-primary);
+}
+
+.swatchSecondary {
+  fill: var(--color-secondary);
+}
+
+.swatchSurface {
+  fill: var(--color-surface);
+  stroke: var(--color-border);
+  stroke-width: 0.7;
+}
+
+.swatchBg {
+  fill: var(--color-bg);
+  stroke: var(--color-border);
+  stroke-width: 0.7;
+}
+
+.codeBlock {
+  fill: var(--color-bg);
+  stroke: var(--color-border);
+  stroke-width: 0.7;
+}
+
+.codeLine {
+  fill: var(--color-secondary);
+  opacity: 0.55;
+}
+
+.codeLineMuted {
+  fill: var(--color-secondary);
+  opacity: 0.28;
+}
+
+.codeLineAccent {
+  fill: var(--color-accent);
+  opacity: 0.72;
+}
+
+/* Readable text tokens in DESIGN.md panel */
+.sectionHead {
+  font-family: var(--font-display);
+  font-size: 5.5px;
+  font-weight: 500;
+  fill: var(--color-primary);
+  letter-spacing: 0.02em;
+}
+
+.tokenKey {
+  font-family: var(--font-mono);
+  font-size: 4.2px;
+  fill: var(--color-secondary);
+  letter-spacing: 0.01em;
+}
+
+.tokenVal {
+  font-family: var(--font-mono);
+  font-size: 4.2px;
+  fill: var(--color-primary);
+  opacity: 0.85;
+}
+
+/* Code block text */
+.codeComment {
+  font-family: var(--font-mono);
+  font-size: 4px;
+  fill: var(--color-secondary);
+  opacity: 0.5;
+}
+
+.codeProp {
+  font-family: var(--font-mono);
+  font-size: 4px;
+  fill: var(--color-secondary);
+}
+
+.codeColon {
+  font-family: var(--font-mono);
+  font-size: 4px;
+  fill: var(--color-primary);
+  opacity: 0.35;
+}
+
+.codeVal {
+  font-family: var(--font-mono);
+  font-size: 4px;
+  fill: var(--color-primary);
+  opacity: 0.8;
+}
+
+/* Drawing primitives — shared across Tooltip / Alert / ButtonGroup SVGs */
+.surfaceArrow {
+  fill: var(--color-bg);
+}
+
+.caretStroke {
+  stroke: var(--color-border);
+  stroke-width: 0.8;
+}
+
+.onAccent {
+  fill: var(--color-on-accent);
+  opacity: 0.7;
+}
+
+.accentBar {
+  fill: var(--color-accent);
+  opacity: 0.85;
+}
+
+.dismissStroke {
+  stroke: var(--color-secondary);
+  stroke-width: 1.5;
+  opacity: 0.35;
+  stroke-linecap: round;
+}
+
+.divider {
+  stroke: var(--color-border);
+  stroke-width: 1;
+}
+
+.dividerFaint {
+  stroke: var(--color-border);
+  stroke-width: 0.6;
+  opacity: 0.5;
+}
+
+/* ── RATES WALKTHROUGH variant ──────────────────────────── */
+
+.ratesLayout {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.ratesPage {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ratesPage svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ratesFilterDrawer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 24%;
+  z-index: 2;
+  will-change: transform;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(4px 0 12px rgba(15, 23, 42, 0.12));
+}
+
+.ratesFilterDrawer svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ratesClickDot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(27, 106, 224, 0.25);
+  border: 2px solid rgba(27, 106, 224, 0.6);
+  pointer-events: none;
+  z-index: 4;
+  animation: ratesClickPulse 0.5s ease-out forwards;
+}
+
+@keyframes ratesClickPulse {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.caption {
+  margin-top: var(--space-sm);
+  font-family: var(--font-prose);
+  font-size: var(--fs-body-md);
+  font-style: italic;
+  color: var(--color-secondary);
+  line-height: 1.5;
+  max-width: var(--max-prose);
+}
+
+/* ── Mobile slider ────────────────────────────────────────── */
+
+.mobileSliderWrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  /* Soft fade at left/right edges so screens ease in/out */
+  --fade: 6%;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--fade),
+    #000 calc(100% - var(--fade)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--fade),
+    #000 calc(100% - var(--fade)),
+    transparent 100%
+  );
+}
+
+.mobileTrack {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 0 32px;
+  height: 100%;
+  width: max-content;
+  will-change: transform;
+}
+
+.mobileScreen {
+  height: 74%;
+  width: auto;
+  flex: 0 0 auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 28px -10px rgba(26, 24, 22, 0.22);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ── Video hero ───────────────────────────────────────────── */
+
+.figureHero {
+  margin: var(--space-lg) 0;
+}
+
+.videoBlock {
+  aspect-ratio: 1920 / 1052;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow:
+    0 1px 2px rgba(26, 24, 22, 0.06),
+    0 18px 48px -20px rgba(26, 24, 22, 0.22);
+  transition:
+    transform var(--dur-move) var(--ease-spring),
+    border-color var(--dur-move) var(--ease-in-out),
+    box-shadow var(--dur-move) var(--ease-in-out);
+}
+
+.videoBlock:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 1px 2px rgba(26, 24, 22, 0.06),
+    0 26px 60px -20px rgba(252, 119, 83, 0.28);
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .videoBlock,
+  .videoBlock:hover {
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,35 @@
+.layout {
+  max-width: var(--max-page);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--page-pad) var(--space-xxl);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.content {
+  min-width: 0;
+  max-width: var(--max-image);
+}
+
+.aside {
+  display: none;
+}
+
+@media (min-width: 1080px) {
+  .layout {
+    position: relative;
+  }
+
+  .content {
+    max-width: var(--max-image);
+    margin: 0 auto;
+  }
+
+  .aside {
+    display: block;
+    position: absolute;
+    top: var(--space-xl);
+    right: var(--page-pad);
+    width: 320px;
+  }
+}

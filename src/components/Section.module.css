@@ -1,0 +1,35 @@
+.section {
+  scroll-margin-top: 96px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity var(--dur-long) var(--ease-out),
+    transform var(--dur-long) var(--ease-out);
+}
+
+.section + .section {
+  margin-top: var(--space-lg);
+}
+
+.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--fs-h1);
+  line-height: 1.12;
+  letter-spacing: -0.005em;
+  margin-bottom: var(--space-md);
+  color: var(--color-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

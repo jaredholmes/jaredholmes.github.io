@@ -1,0 +1,22 @@
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--color-bg);
+}
+
+.name {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: 0.01em;
+  color: var(--color-primary);
+  text-decoration: none;
+  padding: var(--space-md) var(--page-pad);
+  transition: color var(--dur-micro) var(--ease-out);
+}
+
+.name:hover {
+  color: var(--color-accent);
+}
