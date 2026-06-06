@@ -48,6 +48,7 @@ export interface CaseStudy {
   meta: { role: string; team?: string };
   outcome: string;
   link?: { label: string; href: string };
+  disclaimer?: string;
   hero: { caption: string; variant?: VisualVariant; video?: string };
   sections: Section[];
 }
@@ -57,14 +58,16 @@ const nyshexRates: CaseStudy = {
   company: "NYSHEX",
   companyUrl: "https://nyshex.com/",
   logo: logoNyshex,
-  title: "Rebuilding the rates platform around how shippers actually work",
+  title: "Building a rate management system around daily workflows",
   shortTitle: "Rates Platform",
   framing:
     "An AI-based rates ingestion tool that turns thousands of unstructured carrier rate files into a uniform, searchable repository.",
   meta: {
     role: "Staff Product Designer",
   },
-  outcome: ">150% revenue lift over three months",
+  outcome: ">150% sales conversion increase over three months",
+  disclaimer:
+    "To respect NDA constraints, images are abstracted. Get in touch to learn more about this project",
   hero: {
     caption:
       "The redesigned rates surface — search, filter, and the Document Hub that gives operators visibility into ingestion.",
@@ -76,9 +79,9 @@ const nyshexRates: CaseStudy = {
       nodes: [
         {
           type: "prose",
-          md: `NYSHEX is the data and technology platform for ocean shipping. I joined as the staff product designer, responsible for NYSHEX's flagship products.
+          md: `NYSHEX is a data and technology platform for ocean shipping.
 
-The first major project was an overhaul of the rates ingestion tool — an AI-based product that takes thousands of unstructured rate files from carriers and forwarders, parses them, and displays the contents in a uniform, searchable repository. After the redesign shipped, revenue on the product was up more than 150% over three months.`,
+I was the staff product designer responsible for an overhaul of the rates ingestion tool — an AI product that takes thousands of unstructured rate files from carriers and forwarders, parses them, and displays the contents in a uniform, searchable repository. After the redesign shipped, product sales were up more than 150% over three months.`,
         },
       ],
     },
@@ -88,9 +91,9 @@ The first major project was an overhaul of the rates ingestion tool — an AI-ba
       nodes: [
         {
           type: "prose",
-          md: `The primary users are operators and logistics managers at shippers and NVOCCs, with executives occasionally dipping in for higher-level views. They're trying to do a few overlapping things: benchmark rates and carrier performance to decide who to commit volume to, plan freight allocations across lanes, manage exceptions as they happen, and walk into budget and negotiation conversations with full visibility of their costs.
+          md: `The primary users are operators and logistics managers at shippers and NVOCCs, with executives occasionally scanning for higher-level views. The users have overlapping goals: benchmark rates and carrier performance to decide who to commit volume to, plan freight allocations across lanes, and prepare for budget and negotiation conversations with full visibility of their costs.
 
-These users don't have time for product theatre. They're often switching between four or five tools, copy-pasting rates into spreadsheets, and chasing carriers over email. The rates tool was meant to be the place that consolidated all of that.`,
+These users are often switching between four or five tools, copy-pasting rates into spreadsheets, and liaising with carriers over email. Rate Management was meant to consolidate the majority of these tasks.`,
         },
       ],
     },
@@ -98,16 +101,16 @@ These users don't have time for product theatre. They're often switching between
       id: "nyshex-rates-wrong",
       heading: "What was wrong",
       nodes: [
-        { type: "prose", md: `Two themes ran through the problems users were hitting.` },
+        { type: "prose", md: `User research revealed two themes of pain points with the first version of the product.` },
         {
           type: "problemCards",
           cards: [
             {
               title: "Built around capabilities, not jobs",
               points: [
-                "Features existed because they'd been built, not because they slotted into how operators move through their day",
+                "Features existed because the engineering capacity had been built, not because they addressed user problems and real-world context",
                 "Users were unaware of some of the platform's most important features",
-                "The product was being used in isolation rather than as part of a broader workflow",
+                "The product was being used in isolation, rather than as part of a broader end-to-end journey",
                 "Adjacent features that could have completed a workflow went undiscovered",
               ],
             },
@@ -117,7 +120,7 @@ These users don't have time for product theatre. They're often switching between
                 "Operators scan first and read second; the UI didn't reward scanning",
                 "Information was uniformly weighted, dense without being legible",
                 "Decisions were hard to make at a glance",
-                "The visual experience didn't carry well in sales demos",
+                "The visual experience struggled to communicate value in sales demos",
               ],
             },
           ],
@@ -136,9 +139,9 @@ These users don't have time for product theatre. They're often switching between
       nodes: [
         {
           type: "prose",
-          md: `Earlier in my time at NYSHEX I'd built a user research agent that pulled transcripts, sales calls, and customer feedback into structured persona and JTBD updates. It didn't replace talking to users, but it let me move quickly between the strategic level and the specific quote.
+          md: `Being part of a small team that lacked dedicated researchers, I built an AI user research agent that pulled customer support transcripts, sales calls, and customer feedback into structured persona and pain point updates. It didn't replace talking to users, but it helped design to move quickly and validate design directions.
 
-What surfaced was that users weren't asking for a better rates *viewer*. They were asking for a tool that respected how they think about lanes, carriers, and decisions. The clearest example: almost nobody thinks about a lane as a single origin-destination pair. They think about head hauls and backhauls together — the round-trip is the unit of economic decision-making, not the leg. The existing search reflected the database schema, not the mental model. That was the gap.`,
+What surfaced was that users weren't asking for a better rates *viewer*. They were asking for a tool that matched how they worked with lanes, carriers, and decisions. For example, many users didn't consider a lane as a single origin-destination pair. They factored in head hauls and backhauls together — the round-trip is the unit of economic decision-making, not the leg. The existing search reflected the database schema instead of the primary mental model.`,
         },
       ],
     },
@@ -148,23 +151,23 @@ What surfaced was that users weren't asking for a better rates *viewer*. They we
       nodes: [
         {
           type: "prose",
-          md: `A redesign of this scope had a hundred small calls. Four were structural enough to be worth naming.
+          md: `A redesign of this scope involved dozens of detailed changes. Four were structural enough to highlight here.
 
 ### Searching by multiple locations, not single pairs
 
-The existing search asked users to specify one origin and one destination. To compare head hauls and backhauls, users had to run multiple searches and reconcile them mentally. The redesign let users specify multiple origins and destinations in a single search, with results grouped to show the round-trip economics. This sounds simple. It wasn't — the backend assumptions about how rates relate to lanes had to bend to accommodate it. But it matched how operators actually think, and once shipped, it became one of the most-used features in the tool.
+The existing search asked users to specify one origin and one destination. To compare head hauls and backhauls, users had to run multiple searches and reconcile them mentally. The redesign let users specify multiple origins and destinations in a single search, with results grouped to show the round-trip economics. Delivering this required architectural changes led by the design, which was informed by how operators actually think. Once shipped, it became one of the most-used features in the tool.
 
 ### Search-then-filter, instead of filter-everywhere
 
-The legacy product front-loaded filters. Users were asked to specify a lot before seeing anything. The redesign inverted that: a broad search up front, then progressive specificity through filters applied to the result set. This is a small interaction-design call but it changed how users approached the tool. Instead of "I need to know exactly what I'm looking for before I start," it became "let me see what's here and narrow in."
+The legacy product front-loaded filters. Users were asked to specify a lot before seeing anything. The redesign inverted this by using a broad search up front, and progressive specificity through filters applied to the result set. This is a small interaction-design detail, but it changed how users approached the tool, allowing them to start broad and focus only when necessary.
 
 ### An admin centre for ingestion transparency
 
-Rate files often take 24+ hours to process. Customers were filing support tickets asking "where is my file" because they had no way to see. Adding an admin centre that showed the processing status of submitted documents was a small surface that quietly removed a lot of friction. It also reduced inbound support load measurably, which paid for the design work several times over on its own.
+Rate files often take several hours to process. Customers were filing support tickets asking for status updates because they had no visibility. Adding an admin centre that showed the processing status of submitted documents was a small surface that instantly improved customer experience while reducing operational support costs.
 
 ### Rate benchmarking in context
 
-Users were leaving the rates tool to check benchmarks elsewhere, then coming back to make decisions. Surfacing benchmarks inline — alongside the rate they were already looking at — added context where the decision was actually being made, increased engagement with NYFI data, and opened legitimate upsell paths into NYSHEX's index products.`,
+Users were leaving the rates tool to check benchmarks elsewhere, then coming back to make decisions. Surfacing benchmarks inline — alongside the rate they were already looking at — added context where the decision was actually being made, increased engagement with NYFI (NYSHEX Freight Indices) data, and opened legitimate upsell paths into NYSHEX's index products.`,
         },
         {
           type: "visual",
@@ -180,13 +183,13 @@ Users were leaving the rates tool to check benchmarks elsewhere, then coming bac
       nodes: [
         {
           type: "prose",
-          md: `The design medium was prototypes, and most of them didn't ship.
+          md: `Design artefacts were delivered as prototypes, refactored several times.
 
-Some variations were set aside for commercial reasons. A few directions, when prototyped, would have cannibalised features the company was actively selling as separate products. In a startup with a tight commercial roadmap, the design that's best for the user in isolation isn't always the design that ships — and the harder, more interesting work is finding the variant that does both.
+Some variations were set aside for commercial reasons. A few directions, when prototyped, would have cannibalised features the company was actively selling as separate products.
 
-Others were set aside for technical reasons. Some of the analytics I wanted to surface inline depended on backend services that would have introduced too much UI lag to be usable. We compromised with cached summaries and async loading patterns for the heavier data, which was less elegant than the original concept but actually shippable.
+Others were set aside for technical reasons. Some of the analytics initially required depended on backend services that would have introduced front-end lag.
 
-A third set got reshaped as new insights came in — from the research agent and from sales conversations. The head haul/backhaul requirement, for instance, surfaced late and quietly invalidated a few weeks of search-design work. That's the cost of moving fast with research running in parallel; you sometimes throw work away. It's a cost I'd choose again.`,
+We also refactored based on new insights — from the research agent and from sales conversations. The head haul/backhaul requirement, for instance, surfaced late and required an information architecture pivot.`,
         },
       ],
     },
@@ -196,25 +199,13 @@ A third set got reshaped as new insights came in — from the research agent and
       nodes: [
         {
           type: "prose",
-          md: `The redesigned rates ingestion and management surface shipped, and three months later revenue on the product was up more than 150%. The lift wasn't from one mechanism — it came from three running in parallel:
+          md: `The redesigned rates ingestion and management surface shipped, and three months later revenue product sales increased over 150%. Outcomes included:
 
-- **Sales conversion improved.** Prospects had an aha moment during demos, often within the first minute. The product looked like something they wanted to use, and the workflow it implied was closer to how they actually worked.
-- **Retention and renewals improved.** Existing customers got more out of the product, used it more frequently, and stopped going back to spreadsheets for the things the platform could now do.
+- **Sales conversion improved.** Prospects had an "aha moment" during demos, often within the first few minutes. The product looked desirable, and the workflow it implied was closer to how they actually worked.
+- **Retention and renewals improved.** Existing customers benefitted, used the product more frequently, and stopped reverting to spreadsheets for tasks they could perform in the platform.
 - **Per-user revenue increased.** Cross-feature engagement — particularly the inline benchmarking — created natural paths into adjacent products that previously required a separate sales conversation.
 
-A 150% lift over three months has contributing factors beyond design: a strong commercial team, a product that was already gaining traction, broader macro tailwinds in shipping. The redesign isn't the sole cause. But the changes showed up in user behaviour quickly, and the people closest to revenue pointed at them as a meaningful contributor.`,
-        },
-      ],
-    },
-    {
-      id: "nyshex-rates-reflection",
-      heading: "Reflection",
-      nodes: [
-        {
-          type: "prose",
-          md: `Early on I over-indexed on one dominant use case. The rate-comparison flow for a specific lane decision was so frequent in research that I started optimising the whole product around it — which quietly alienated a long tail of users with smaller but equally important needs. Dialling that back meant rebuilding the IA to be less opinionated. The lesson stuck: frequency of a use case isn't the same as its importance to retention. Some quieter workflows are load-bearing for specific high-value customers.
-
-The broader thing this project clarified is that research surfaces what users do, but design has to commit to a mental model. The user research agent gave me speed; the actual decisions were still about choosing which mental model the product would serve. Head hauls and backhauls together, not separately. Search then filter, not filter then search. Benchmarks beside rates, not benchmarks in another tab. None of those are findable in the transcripts directly. They're synthesis calls, and they're the part of the job that doesn't get automated any time soon.`,
+That said, the sales increase had contributing factors beyond design: a strong commercial team, a product that was already gaining traction, broader macro tailwinds in shipping.`,
         },
       ],
     },
@@ -518,9 +509,9 @@ const absaCreditCoach: CaseStudy = {
       nodes: [
         {
           type: "prose",
-          md: `Absa Credit Coach is a free tool in the Absa Banking App that helps customers see, understand, and improve their credit score. It was built to be more transparent than other credit tools about how scores are calculated, and to connect customers who need help with the means to get it.
+          md: `Absa Credit Coach is a free tool in the Absa Banking App that helps customers see, understand, and improve their credit score. It aims to be more transparent than other credit tools about how scores are calculated, and to make it easy and approachable to get debt repayment assistance.
 
-I was the lead product and service designer, and I joined when there was nothing — no designs, no technical infrastructure, not even a partnership in place. I was involved early in the RFP and partnership process with the credit bureau, making sure that what they could provide and what we intended to ship stayed aligned. The product launched in April 2024 and had over two million views within its first six months. It's since become an increasingly important part of the bank's digital lending strategy.`,
+As the lead designer on the project, I was involved from inception — no designs, technical infrastructure, or credit bureau partnership had been established. I was involved early in the RFP and partnership process with the credit bureau, making sure that what they could provide and what we intended to ship stayed aligned. The product launched in April 2024 and was used over two million times within its first six months. It's since become an increasingly important part of the bank's digital lending strategy.`,
         },
       ],
     },
@@ -530,7 +521,7 @@ I was the lead product and service designer, and I joined when there was nothing
       nodes: [
         {
           type: "prose",
-          md: `Credit Coach has a broad user base, but it's aimed primarily at customers with lower credit scores — people who may need help understanding how to manage credit responsibly. In South Africa, where many people carry difficult debt, that's a large and underserved group. The tool sits inside the bank's primary channel, the mobile banking app, so it reaches customers where they already are.`,
+          md: `Credit Coach has a broad user base, but it's aimed primarily at Absa customers with lower credit scores — people who may need help understanding how to manage credit responsibly. This is a large segment in South Africa. The tool sits inside the bank's primary channel, the mobile banking app.`,
         },
       ],
     },
@@ -540,11 +531,11 @@ I was the lead product and service designer, and I joined when there was nothing
       nodes: [
         {
           type: "prose",
-          md: `The business case for Credit Coach was clear. A tool that helps customers improve their credit health should, over time, reduce missed payments and loan collections. That's good for the customer and good for the bank.
+          md: `The business case for Credit Coach was clear: reduce missed payments and loan collections.
 
-The hard part was the customer side. Customer interviews told us something uncomfortable: people found the idea of a credit tool interesting and useful, but only in the abstract. They'd agree it was worth having, and then they'd never open it. A credit score is something most people would rather not look at. Building a tool that simply displayed one accurately would have produced a product nobody used.
+The customer value proposition took more discovery work to get right. Customer interviews revealed that people found the idea of a credit tool interesting and useful, but that they'd be unlikely to open and use it. A credit score is something many people, especially those struggling with repayments, prefer to avoid. Building a tool that simply displayed one accurately would likely have seen minimal engagement.
 
-The insight that reframed the project was in the name. Credit Coach couldn't be a calculator. It had to be a coach — something that notifies you when things change, tracks your progress over time, and makes your achievements tangible. The shift from *informative* to *motivational* changed what we were building. Instead of a place you go to check a number, it became something that comes to you, marks your progress, and gives you a reason to come back.`,
+The insight that reframed the project was in the name. Credit Coach couldn't be a static score display. It had to be a coach — something that notifies you when things change, tracks your progress over time, and makes your achievements tangible. The shift from *informative* to *motivational* changed what we were building.`,
         },
         {
           type: "visual",
@@ -562,7 +553,7 @@ The insight that reframed the project was in the name. Credit Coach couldn't be 
           type: "prose",
           md: `The behaviour the product was ultimately trying to support was better credit and loan repayment. That meant a degree of education — helping customers understand what actually moves a credit score — alongside a product designed to be habit-forming in a healthy way. The aim was for customers to check in regularly, understand the implications of what they saw, and feel motivated toward changes like more careful spending and prioritising debt repayment.
 
-Designing for behaviour change inside a bank comes with constraints from every direction — technology, legacy systems, credit risk, compliance, and the business itself. Holding the coaching vision steady through all of that was a large part of the job. It was easy for the product to drift back toward being a data display, because a data display is simpler to build and easier to get signed off. Keeping it a coach took sustained effort.`,
+Designing for behaviour change inside a bank involves constraints — technology, legacy systems, credit risk, compliance, and the business itself. Maintaining the coaching vision was important, and involved trade-offs, negotiations and collaboration.`,
         },
       ],
     },
@@ -572,21 +563,9 @@ Designing for behaviour change inside a bank comes with constraints from every d
       nodes: [
         {
           type: "prose",
-          md: `One advantage Absa had that standalone credit apps don't: the score didn't have to live in isolation. Because Credit Coach sat inside the banking app, it could connect a customer's credit score to the actual credit products they held with the bank, and suggest next best actions — paying off an overdue account, or setting aside a buffer in a savings account.
+          md: `Absa's advantage over standalone credit apps was that the score didn't have to live in isolation. Because Credit Coach sat inside the banking app, it could connect a customer's credit score to the actual credit products they held with the bank, and suggest next best actions — paying off an overdue account, or setting aside a buffer in a savings account.
 
-On its own, each of these is a small thing. Together they removed a real friction. Customers didn't have to move between a separate credit-score app and their banking app to act on what they learned, and the recommendations gave them a concrete next step rather than just a number and a vague sense they should do better.`,
-        },
-      ],
-    },
-    {
-      id: "absa-cc-constraints",
-      heading: "Constraints",
-      nodes: [
-        {
-          type: "prose",
-          md: `Not everything we envisioned made it in. The product was slower to load than we'd hoped, and we weren't always able to surface a complete picture of a customer's credit position. Some of the originally planned functionality was cut or scaled back against technical realities.
-
-These weren't design failures so much as the normal friction of shipping an ambitious product on top of existing bank infrastructure. But they did shape what launched, and they're part of why my reflection below is about ambition and delivery rather than craft.`,
+This removed friction: customers didn't have to move between a separate credit-score app and their banking app to act on what they learned, and the recommendations gave them a concrete next step rather than opaque metrics.`,
         },
       ],
     },
@@ -596,9 +575,9 @@ These weren't design failures so much as the normal friction of shipping an ambi
       nodes: [
         {
           type: "prose",
-          md: `Credit Coach launched in April 2024 and passed two million views within six months. What's most telling is *which* features customers gravitated to. The most-used parts of the product turned out to be the ones that supported the coaching model — credit score comparisons, the ability to dispute incorrect records directly from the app, and visibility into missed payments across all of a customer's accounts, not just their Absa ones. People didn't just want to see a number. They wanted to understand it, correct it, and act on it. That validated the core bet.
+          md: `What's most telling is *which* features customers gravitated to. The most-used parts of the product are the ones that support the coaching model — credit score comparisons, the ability to dispute incorrect records directly from the app, and visibility into missed payments across accounts.
 
-The product is live today and has become a growing part of how the bank approaches digital lending.`,
+The product is live today and has become a growing part of how the bank approaches digital lending, acting as both a marketing channel and a collections reduction lever.`,
         },
       ],
     },

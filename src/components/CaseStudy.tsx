@@ -2,6 +2,7 @@ import type { CaseStudy as CaseStudyData } from "../data/caseStudies";
 import { Section } from "./Section";
 import { Visual } from "./Visual";
 import { Stat } from "./Stat";
+import { Disclaimer } from "./Disclaimer";
 import styles from "./CaseStudy.module.css";
 
 export function CaseStudy({ study }: { study: CaseStudyData }) {
@@ -44,6 +45,7 @@ export function CaseStudy({ study }: { study: CaseStudyData }) {
             <span aria-hidden="true">→</span>
           </a>
         )}
+        {study.disclaimer && <Disclaimer text={study.disclaimer} />}
       </header>
 
       <Visual

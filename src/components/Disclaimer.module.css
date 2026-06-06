@@ -1,0 +1,19 @@
+.disclaimer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin: var(--space-sm) 0 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-label);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--color-secondary);
+  opacity: 0.8;
+  max-width: var(--max-prose);
+  line-height: 1.5;
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--color-secondary);
+}
