@@ -26,55 +26,168 @@
   margin-bottom: var(--space-sm);
 }
 
+/* Name heading + circle photo inline — photo right-aligned. */
+.nameRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-prose);
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
 .name {
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(2.25rem, 1.4rem + 3.5vw, 4.25rem);
   line-height: 1.06;
   letter-spacing: -0.01em;
-  margin-bottom: var(--space-md);
 }
 
-.tagline {
-  font-family: var(--font-prose);
-  font-size: var(--fs-body-lg);
-  line-height: 1.5;
-  color: var(--color-primary);
+/* Circle — slightly taller than the h2 line-height (~4.5rem at max). */
+.photo {
+  width: clamp(72px, 7vw, 88px);
+  height: clamp(72px, 7vw, 88px);
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--color-surface);
+  flex-shrink: 0;
+}
+
+/* Card grids — three across at desktop, single column on small viewports. */
+.highlights,
+.disciplines {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
   max-width: var(--max-prose);
-  margin-bottom: var(--space-md);
 }
 
-.metaRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  font-family: var(--font-display);
-  font-size: var(--fs-label);
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-secondary);
+.highlights {
   margin-bottom: var(--space-lg);
 }
 
-.body {
-  max-width: var(--max-prose);
+.disciplines {
+  margin: var(--space-md) 0 var(--space-lg);
+}
+
+@media (max-width: 640px) {
+  .highlights,
+  .disciplines {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Highlight cards ────────────────────────────────────────────── */
+
+/* Start hidden; all reveal simultaneously when .highlights.visible fires. */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: 0 1px 2px rgba(26, 24, 22, 0.04);
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity var(--dur-long) var(--ease-out),
+    transform var(--dur-move) var(--ease-out),
+    border-color var(--dur-move) var(--ease-in-out),
+    box-shadow var(--dur-move) var(--ease-in-out);
+}
+
+.highlights.visible .card {
+  opacity: 1;
+  transform: none;
+}
+
+/* 2-second sequential spotlight: coral border + slight grow. */
+.highlights.visible .cardActive {
+  transform: scale(1.02);
+  border-color: var(--color-accent);
+  box-shadow: 0 10px 28px rgba(26, 24, 22, 0.1);
+}
+
+/* Hover overrides the active scale with the standard lift. */
+.highlights.visible .card:hover,
+.highlights.visible .cardActive:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+  box-shadow: 0 10px 28px rgba(26, 24, 22, 0.1);
+}
+
+.cardLabel {
+  font-family: var(--font-display);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.cardValue {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+  color: var(--color-primary);
+}
+
+.cardSuffix {
+  font-family: var(--font-display);
+  font-size: var(--fs-body-md);
+  color: var(--color-secondary);
+}
+
+.cardNote {
   font-family: var(--font-prose);
-  font-size: var(--fs-body-lg);
-  line-height: 1.8;
-  font-feature-settings: "onum" 1;
+  font-size: var(--fs-body-md);
+  line-height: 1.4;
+  color: var(--color-secondary);
 }
 
-.body p {
-  margin-bottom: var(--space-md);
+/* ── Discipline cards ───────────────────────────────────────────── */
+
+.disciplineCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: 0 1px 2px rgba(26, 24, 22, 0.04);
+  font-family: var(--font-prose);
+  font-size: var(--fs-body-md);
+  line-height: 1.45;
+  color: var(--color-primary);
+  transition:
+    transform var(--dur-move) var(--ease-spring),
+    border-color var(--dur-move) var(--ease-in-out),
+    box-shadow var(--dur-move) var(--ease-in-out);
 }
 
-.body p:last-child {
-  margin-bottom: 0;
+.disciplineIcon {
+  width: 24px;
+  height: 24px;
+  opacity: 0.65;
 }
+
+.disciplineCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+  box-shadow: 0 10px 28px rgba(26, 24, 22, 0.1);
+}
+
+/* ── Reduced motion ─────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
-  .about {
+  .about,
+  .card {
     opacity: 1;
     transform: none;
     transition: none;

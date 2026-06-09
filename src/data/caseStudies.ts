@@ -584,4 +584,4 @@ The product is live today and has become a growing part of how the bank approach
   ],
 };
 
-export const caseStudies: CaseStudy[] = [nyshexRates, nyshexDesignSystem, rentEngine, absaCreditCoach];
+export const caseStudies: CaseStudy[] = [rentEngine, nyshexRates, nyshexDesignSystem, absaCreditCoach];
