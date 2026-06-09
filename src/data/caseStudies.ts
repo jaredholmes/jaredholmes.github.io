@@ -125,12 +125,6 @@ These users are often switching between four or five tools, copy-pasting rates i
             },
           ],
         },
-        {
-          type: "visual",
-          variant: "annotated",
-          caption:
-            "Annotated view of the legacy UI, with the hierarchy and legibility problems called out.",
-        },
       ],
     },
     {
@@ -416,12 +410,6 @@ Some property managers want to see everything about an applicant upfront. Credit
 Progressive disclosure was the obvious answer, but the version that works for one user often frustrates the other. Show too little upfront and users who scan get slowed down and frustrated. Show too much and landing on the page can feel overwhelming, especially when looking for crucial details like credit history and household income. Getting this right took several rounds of prototyping and a few rejected directions before we landed somewhere that worked.
 
 The version that shipped uses a layered approach. The top of an applicant view shows the facts most managers said they needed to make a first-pass judgement — income-to-rent ratio, screening status, application completeness, key flags. Everything else is one click away rather than hidden.`,
-        },
-        {
-          type: "visual",
-          variant: "diagram",
-          caption:
-            "Applicant detail view showing the layered disclosure — first-pass facts up top, full depth one click away.",
         },
       ],
     },
