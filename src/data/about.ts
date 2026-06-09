@@ -19,7 +19,7 @@ export const about = {
     "User research",
     "Design ops and org building",
   ],
-  intro: `Originally from a software development background, I’ve been designing experiences for the past seven years. I started at a design agency in the days of static screens in AdobeXD, when responsive mobile design and single-page web apps were become commonplace. I then spent several years in the structured, system-intensive fintech and financial services space, before working senior design roles for B2B SaaS startups.
+  intro: `Originally from a software development background, I’ve been designing experiences for the past seven years. I started at a design agency in the days of static screens in AdobeXD, when responsive mobile design and single-page web apps were commonplace. I then spent several years in the structured, system-intensive fintech and financial services space, before working senior design roles for B2B SaaS startups.
 
 I’ve shipped products used by both niche teams and millions of users, setup high-performing startup design organisations, and coached several young designers towards rewarding design careers.
 
