@@ -7,6 +7,9 @@
   flex-direction: column;
   align-items: flex-end;
   gap: var(--space-sm);
+  /* Container must not intercept taps over its empty area (the closed panel
+     still occupies layout). Interactive children opt back in below. */
+  pointer-events: none;
 }
 
 .fab {
@@ -20,6 +23,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 6px 20px rgba(252, 119, 83, 0.35);
+  pointer-events: auto;
   transition:
     transform var(--dur-move) var(--ease-spring),
     box-shadow var(--dur-move) var(--ease-in-out);

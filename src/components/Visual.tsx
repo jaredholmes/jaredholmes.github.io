@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import type { VisualVariant } from "../data/caseStudies";
+import rateManagementSvg from "../img/nyshex-product/rate-management.svg";
 import mobileHome from "../img/rental-applications/RA-mobile-home.png";
 import mobileApplications from "../img/rental-applications/RA-mobile-applications.png";
 import mobileHousing from "../img/rental-applications/RA-mobile-housing.png";
@@ -1370,6 +1371,19 @@ export function Visual({
 }) {
   if (video) {
     return <VideoHero src={video} caption={caption} />;
+  }
+  if (variant === "ratesManagement") {
+    return (
+      <figure className={styles.figure}>
+        <img
+          src={rateManagementSvg}
+          alt=""
+          role="presentation"
+          className={styles.imageStandalone}
+        />
+        <figcaption className={styles.caption}>{caption}</figcaption>
+      </figure>
+    );
   }
   return (
     <figure className={styles.figure}>

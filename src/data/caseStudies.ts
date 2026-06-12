@@ -21,6 +21,7 @@ export type VisualVariant =
   | "designmd"
   | "mobileSlider"
   | "ratesWalkthrough"
+  | "ratesManagement"
   | "creditCoachSlider"
   | "creditCoachDiagram";
 
@@ -67,7 +68,7 @@ const nyshexRates: CaseStudy = {
   },
   outcome: ">150% sales conversion increase over three months",
   disclaimer:
-    "To respect NDA constraints, images are abstracted. Get in touch to learn more about this project",
+    "To respect NDA constraints, images are abstracted. Get in touch to learn more about this project.",
   hero: {
     caption:
       "The redesigned rates surface — search, filter, and the Document Hub that gives operators visibility into ingestion.",
@@ -165,9 +166,9 @@ Users were leaving the rates tool to check benchmarks elsewhere, then coming bac
         },
         {
           type: "visual",
-          variant: "fragments",
+          variant: "ratesManagement",
           caption:
-            "Abstracted UI fragments — multi-location search, the progressive filter panel, and the ingestion admin centre.",
+            "Consolidated rate display UI. Users upload unstructured data, which is processed by AI agents and displayed in a uniform, searchable format.",
         },
       ],
     },
@@ -181,7 +182,7 @@ Users were leaving the rates tool to check benchmarks elsewhere, then coming bac
 
 Some variations were set aside for commercial reasons. A few directions, when prototyped, would have cannibalised features the company was actively selling as separate products.
 
-Others were set aside for technical reasons. Some of the analytics initially required depended on backend services that would have introduced front-end lag.
+Others were set aside for technical reasons. Some of the analytics initially scoped depended on backend services that would have introduced front-end lag.
 
 We also refactored based on new insights — from the research agent and from sales conversations. The head haul/backhaul requirement, for instance, surfaced late and required an information architecture pivot.`,
         },
@@ -193,7 +194,7 @@ We also refactored based on new insights — from the research agent and from sa
       nodes: [
         {
           type: "prose",
-          md: `The redesigned rates ingestion and management surface shipped, and three months later revenue product sales increased over 150%. Outcomes included:
+          md: `The redesigned rates ingestion and management surface shipped, and three months later, product revenue increased by over 150%. Outcomes included:
 
 - **Sales conversion improved.** Prospects had an "aha moment" during demos, often within the first few minutes. The product looked desirable, and the workflow it implied was closer to how they actually worked.
 - **Retention and renewals improved.** Existing customers benefitted, used the product more frequently, and stopped reverting to spreadsheets for tasks they could perform in the platform.
@@ -377,11 +378,11 @@ const rentEngine: CaseStudy = {
       nodes: [
         {
           type: "prose",
-          md: `RentEngine is a early-stage startup that helps rental agents and property managers lease their properties and manage their leads in one place. The company has proven product-market fit and considers great UX a competitive advantage.
+          md: `RentEngine is an early-stage startup that helps rental agents and property managers lease their properties and manage their leads in one place. The company has proven product-market fit and considers great UX a competitive advantage.
 
 As RentEngine's founding designer, I took equal parts in design strategy and execution — usually starting with the CEO to unpack the purpose and value of a product, and taking it all the way through to functional prototypes for engineering.
 
-Rental Applications, a leasing and application management product that lets property managers review, approve, reject, and screen applicants for units currently on the market. It became a flagship product for the company, sold as an upsell over the core subscription, and drove a significant uptake in customer demos and new business.`,
+Rental Applications is a leasing and application management product that lets property managers review, approve, reject, and screen applicants for units currently on the market. It became a flagship product for the company, sold as an upsell over the core subscription, and drove a significant uptake in customer demos and new business.`,
         },
       ],
     },
@@ -419,7 +420,7 @@ The version that shipped uses a layered approach. The top of an applicant view s
       nodes: [
         {
           type: "prose",
-          md: `A rental applications isn't a simple form submission. A single applicant review touches screening results, income verification, fraud detection, reference checks, identity verification, and custom qualifying questions. The property manager needs to understand the outcome of each before making a decision that has real financial and legal consequences. The design challenge was fitting all of that into one coherent feature without it feeling like six different tools stitched together.
+          md: `A rental application isn't a simple form submission. A single applicant review touches screening results, income verification, fraud detection, reference checks, identity verification, and custom qualifying questions. The property manager needs to understand the outcome of each before making a decision that has real financial and legal consequences. The design challenge was fitting all of that into one coherent feature without it feeling like six different tools stitched together.
 
 Each of these checks has its own complexity. Credit, criminal, and eviction screening pull from multiple bureaus and return dense, sometimes contradictory results. Income verification cross-references three sources — payroll connections, bank connections, and uploaded documents — and the fraud detection layer flags tampered pay stubs before they reach a manager's review queue, surfacing where the issue is and what the applicant can do about it. References are collected and verified through actual calls to landlords and employers, with transcripts logged. ID verification matches a government ID scan against a selfie with liveness detection. Additionally, managers can configure custom questions and document uploads — pet info, vehicle details, proof of insurance, or anything they deem necessary to make an informed tenant decision.
 
@@ -443,7 +444,7 @@ The design problem was twofold. First, these checks run on different timelines �
       nodes: [
         {
           type: "prose",
-          md: `Rental Applications shipped to customers and became one of RentEngine's flagship features, sold as an upsell over the core subscription. Beta testers saw 25% increased conversion rates, 14 hour faster application processing, and overall improved UX due to the eliminated need to switch between tabs for a single workflow.
+          md: `Rental Applications shipped to customers and became one of RentEngine's flagship features, sold as an upsell over the core subscription. Beta testers saw a 25% increase in conversion rates, application processing 14 hours faster, and improved overall UX by eliminating the need to switch between tabs for a single workflow.
 
 The company saw a significant uptake in customer demos and new business as a direct result of the new feature — the upsell motion gave the sales team a fresh anchor for conversations, and the product itself was substantive enough to close them.`,
         },

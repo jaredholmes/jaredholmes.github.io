@@ -47,6 +47,22 @@
   height: auto;
 }
 
+.imageStandalone {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition:
+    transform var(--dur-move) var(--ease-spring),
+    border-color var(--dur-move) var(--ease-in-out);
+}
+
+.imageStandalone:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+}
+
 /* Motif primitives */
 .surface {
   fill: var(--color-bg);
