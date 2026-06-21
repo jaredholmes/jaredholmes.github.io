@@ -218,13 +218,12 @@ const nyshexDesignSystem: CaseStudy = {
     "A design system that serves as a source of truth for AI-native teams.",
   meta: {
     role: "Staff Product Designer",
-    team: "Product, engineering, design",
   },
   outcome:
     "50% reduction in concept-to-production time; improved overall front-end quality",
   hero: {
     caption:
-      "Hero — the DESIGN.md alongside a shipped component, the source of truth living in the codebase.",
+      "The DESIGN.md alongside a shipped component, the source of truth living in the codebase.",
     variant: "designmd",
   },
   sections: [
@@ -355,7 +354,7 @@ const rentEngine: CaseStudy = {
   companyUrl: "https://www.rentengine.io/",
   logo: logoRentEngine,
   logoHeight: 36,
-  title: "Designing rental applications for an AI-native leasing platform",
+  title: "Designing tenant screening for an AI-native leasing platform",
   shortTitle: "Rental Applications",
   framing:
     "An integrated leasing workflow that delivers meaningful value for property management teams.",

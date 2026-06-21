@@ -8,6 +8,12 @@
   --color-border: #ddd9d2;
   --color-on-accent: #ffffff;
 
+  /* Pond hero artwork — element-keyed inks for the dot field.
+     Kept separate from --color-accent, which stays reserved for interaction. */
+  --color-pond-water: var(--color-primary);
+  --color-pond-lily: #5e8c3f;
+  --color-pond-koi: #e2682f;
+
   /* Typeface stacks */
   --font-display: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
   --font-prose: "EB Garamond", Georgia, "Times New Roman", serif;

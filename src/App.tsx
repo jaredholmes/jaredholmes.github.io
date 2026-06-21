@@ -3,6 +3,7 @@ import { caseStudies } from "./data/caseStudies";
 import { about } from "./data/about";
 import { useScrollSpy } from "./hooks/useScrollSpy";
 import { TopBar } from "./components/TopBar";
+import { Hero } from "./components/Hero";
 import { SideIndex, type IndexEntry } from "./components/SideIndex";
 import { CaseStudy } from "./components/CaseStudy";
 import { About } from "./components/About";
@@ -32,6 +33,8 @@ export default function App() {
         {about.name} — {about.tagline}
       </h1>
       <TopBar name={about.name} entries={entries} activeId={activeId} />
+
+      <Hero ctaHref={`#${caseStudies[0].id}`} />
 
       <div className={styles.layout}>
         <main className={styles.content}>
